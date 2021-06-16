@@ -1,0 +1,18 @@
+:global(.light) .About {
+  color: tomato;
+}
+:global(.dark) .About {
+  color: teal;
+}
+
+.title {
+  font-size: 3rem;
+}
+
+.highlight {
+  background-color: gold;
+}
+
+.long-line-height {
+  line-height: 2rem;
+}
