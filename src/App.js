@@ -17,14 +17,15 @@ const appCss = theme => css`
   align-items: center;
   background-color: ${theme.bgColor};
   padding: 20px;
-  color: ${theme.textColor1};
   transition: background-color 0.5s;
 
-  h1 {
+  /* h1 {
     font-size: 3rem;
     margin-bottom: 20px;
-  }
+  } */
 `;
+
+const h1Css = theme => css``;
 
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
@@ -34,7 +35,15 @@ function App() {
       <Global styles={GlobalStyle} />
       <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
         <div css={appCss}>
-          <h1>emotion</h1>
+          <h1
+            css={theme => css`
+              font-size: 3rem;
+              margin-bottom: 20px;
+              color: ${theme.textColor1};
+            `}
+          >
+            emotion
+          </h1>
           <button size="small" onClick={() => setIsDarkTheme(!isDarkTheme)}>
             change theme
           </button>
