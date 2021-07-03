@@ -3,8 +3,8 @@ import { useState } from "react";
 import { css, Global, ThemeProvider } from "@emotion/react";
 
 import GlobalStyle from "./GlobalStyle";
-import lightTheme from "./lightTheme";
-import darkTheme from "./darkTheme";
+import lightTheme from "./themes/lightTheme";
+import darkTheme from "./themes/darkTheme";
 
 import InnerPage from "./InnerPage";
 
