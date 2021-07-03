@@ -25,8 +25,6 @@ const appCss = theme => css`
   } */
 `;
 
-const h1Css = theme => css``;
-
 function App() {
   const [isDarkTheme, setIsDarkTheme] = useState(false);
 
