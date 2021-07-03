@@ -1,46 +1,44 @@
 /** @jsxImportSource @emotion/react */
 import { useState } from "react";
-import { HashRouter as Router, Switch, Route } from "react-router-dom";
 import { css, Global, ThemeProvider } from "@emotion/react";
 
-import reset from "./reset";
+import GlobalStyle from "./GlobalStyle";
 import lightTheme from "./lightTheme";
 import darkTheme from "./darkTheme";
 
-import styles from "./App.module.scss";
+import InnerPage from "./InnerPage";
 
-import Nav from "./Nav";
-import AboutPage from "./pages/AboutPage";
-import MainPage from "./pages/MainPage";
+const appCss = theme => css`
+  box-sizing: border-box;
+  min-width: 100vw;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: ${theme.bgColor};
+  padding: 20px;
+  color: ${theme.textColor1};
+  transition: background-color 0.5s;
 
-const appCss = (theme) => css`
-  background-color: ${theme.colors.background1};
-  color: ${theme.colors.text1};
+  h1 {
+    font-size: 3rem;
+    margin-bottom: 20px;
+  }
 `;
 
 function App() {
-  const [isDarkTheme, setIsDarkTheme] = useState(true);
+  const [isDarkTheme, setIsDarkTheme] = useState(false);
 
   return (
     <div>
-      <Global styles={reset} />
+      <Global styles={GlobalStyle} />
       <ThemeProvider theme={isDarkTheme ? darkTheme : lightTheme}>
         <div css={appCss}>
-          <h1 className={styles.title}>css-module</h1>
+          <h1>emotion</h1>
           <button size="small" onClick={() => setIsDarkTheme(!isDarkTheme)}>
-            {isDarkTheme ? "🌙" : "☀️"}
+            change theme
           </button>
-          <Router>
-            <Nav />
-            <Switch>
-              <Route path="/about">
-                <AboutPage />
-              </Route>
-              <Route path="/">
-                <MainPage />
-              </Route>
-            </Switch>
-          </Router>
+          <InnerPage />
         </div>
       </ThemeProvider>
     </div>
